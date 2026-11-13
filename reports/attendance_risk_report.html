@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Attendance Risk Report — Fall-2026</title>
+<style>
+    :root {
+        --bg: #f7f8fa; --card: #ffffff; --text: #1c2430; --muted: #6b7280;
+        --accent: #2f5fb3; --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg); color: var(--text); margin: 0; padding: 32px;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    .subtitle { color: var(--muted); margin-bottom: 24px; font-size: 14px; }
+    .stats { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .stat-card {
+        background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+        padding: 16px 20px; flex: 1; min-width: 160px;
+    }
+    .stat-card .value { font-size: 26px; font-weight: 700; }
+    .stat-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; }
+    th, td { text-align: left; padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); }
+    th { background: #eef2f8; color: #33475b; font-weight: 600; position: sticky; top: 0; }
+    tr:hover td { background: #fafbfc; }
+    .badge { color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+    .footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
+    .section-title { font-size: 16px; font-weight: 600; margin: 28px 0 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>📋 Student Attendance Risk Report</h1>
+    <div class="subtitle">Semester: Fall-2026 &nbsp;·&nbsp; Generated: 2026-09-27 11:07 &nbsp;·&nbsp;
+        Model: Logistic Regression &nbsp;·&nbsp; Threshold: 75%</div>
+
+    <div class="stats">
+        <div class="stat-card"><div class="value">220</div><div class="label">Total Students</div></div>
+        <div class="stat-card"><div class="value" style="color:#d64545">68</div><div class="label">Flagged At-Risk</div></div>
+        <div class="stat-card"><div class="value" style="color:#3f8f5f">152</div><div class="label">On Track</div></div>
+        <div class="stat-card"><div class="value">30.9%</div><div class="label">At-Risk Rate</div></div>
+    </div>
+
+    <div class="section-title">Students Flagged At-Risk (sorted by risk probability)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Roll No</th><th>Name</th><th>Program</th><th>Year</th>
+                <th>Attendance %</th><th>Trend</th><th>Longest Absence Streak</th>
+                <th>Risk Score</th><th>Band</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>20260049</td>
+            <td>Aadhya Bhatt</td>
+            <td>B.Tech ME</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>-30.6 pts</td>
+            <td>7</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260035</td>
+            <td>Myra Rao</td>
+            <td>B.Tech CSE</td>
+            <td>1</td>
+            <td>42.5%</td>
+            <td>-1.7 pts</td>
+            <td>10</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260029</td>
+            <td>Navya Joshi</td>
+            <td>B.Tech ECE</td>
+            <td>2</td>
+            <td>47.5%</td>
+            <td>-11.7 pts</td>
+            <td>8</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260021</td>
+            <td>Navya Sharma</td>
+            <td>MCA</td>
+            <td>3</td>
+            <td>49.0%</td>
+            <td>-8.3 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260182</td>
+            <td>Dhruv Patel</td>
+            <td>B.Tech ME</td>
+            <td>3</td>
+            <td>43.3%</td>
+            <td>-10.0 pts</td>
+            <td>9</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260192</td>
+            <td>Riya Patel</td>
+            <td>BCA</td>
+            <td>3</td>
+            <td>50.0%</td>
+            <td>-25.0 pts</td>
+            <td>8</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260201</td>
+            <td>Arjun Patel</td>
+            <td>B.Tech ECE</td>
+            <td>1</td>
+            <td>48.6%</td>
+            <td>-19.4 pts</td>
+            <td>9</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260147</td>
+            <td>Ananya Singh</td>
+            <td>B.Tech ME</td>
+            <td>4</td>
+            <td>48.3%</td>
+            <td>+0.0 pts</td>
+            <td>7</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260054</td>
+            <td>Kiara Agarwal</td>
+            <td>MCA</td>
+            <td>1</td>
+            <td>43.8%</td>
+            <td>-9.7 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260043</td>
+            <td>Saanvi Das</td>
+            <td>B.Tech ME</td>
+            <td>4</td>
+            <td>49.5%</td>
+            <td>-7.3 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260157</td>
+            <td>Zoya Joshi</td>
+            <td>B.Tech CSE</td>
+            <td>3</td>
+            <td>47.9%</td>
+            <td>-0.8 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260009</td>
+            <td>Ira Mishra</td>
+            <td>B.Tech CSE</td>
+            <td>1</td>
+            <td>51.4%</td>
+            <td>-8.3 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260024</td>
+            <td>Ishaan Pillai</td>
+            <td>B.Tech ECE</td>
+            <td>3</td>
+            <td>56.9%</td>
+            <td>-8.3 pts</td>
+            <td>8</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260105</td>
+            <td>Ira Patel</td>
+            <td>B.Tech ECE</td>
+            <td>4</td>
+            <td>51.0%</td>
+            <td>-8.3 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260203</td>
+            <td>Aarav Reddy</td>
+            <td>B.Tech CSE</td>
+            <td>2</td>
+            <td>54.2%</td>
+            <td>+2.8 pts</td>
+            <td>8</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260081</td>
+            <td>Kabir Joshi</td>
+            <td>B.Tech CSE</td>
+            <td>2</td>
+            <td>50.0%</td>
+            <td>-8.3 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260149</td>
+            <td>Ananya Singh</td>
+            <td>MCA</td>
+            <td>1</td>
+            <td>54.2%</td>
+            <td>-11.1 pts</td>
+            <td>7</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260135</td>
+            <td>Dhruv Singh</td>
+            <td>B.Tech ECE</td>
+            <td>3</td>
+            <td>52.1%</td>
+            <td>-4.2 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260109</td>
+            <td>Advait Nair</td>
+            <td>B.Tech ME</td>
+            <td>1</td>
+            <td>50.7%</td>
+            <td>-15.3 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260101</td>
+            <td>Ananya Iyer</td>
+            <td>B.Tech ME</td>
+            <td>3</td>
+            <td>50.7%</td>
+            <td>-9.7 pts</td>
+            <td>3</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260103</td>
+            <td>Dhruv Agarwal</td>
+            <td>B.Tech ME</td>
+            <td>2</td>
+            <td>53.1%</td>
+            <td>+0.0 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260110</td>
+            <td>Pari Verma</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>57.1%</td>
+            <td>-14.2 pts</td>
+            <td>8</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260204</td>
+            <td>Anika Singh</td>
+            <td>BCA</td>
+            <td>4</td>
+            <td>54.2%</td>
+            <td>-8.3 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260036</td>
+            <td>Diya Rao</td>
+            <td>BCA</td>
+            <td>1</td>
+            <td>49.2%</td>
+            <td>-10.0 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260144</td>
+            <td>Ayaan Bhatt</td>
+            <td>B.Tech ME</td>
+            <td>1</td>
+            <td>52.5%</td>
+            <td>-15.0 pts</td>
+            <td>6</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260069</td>
+            <td>Shaurya Das</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>55.2%</td>
+            <td>+6.2 pts</td>
+            <td>4</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260164</td>
+            <td>Zoya Kulkarni</td>
+            <td>B.Tech ECE</td>
+            <td>4</td>
+            <td>62.5%</td>
+            <td>-8.3 pts</td>
+            <td>9</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260212</td>
+            <td>Dhruv Singh</td>
+            <td>BCA</td>
+            <td>3</td>
+            <td>54.2%</td>
+            <td>-8.3 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260050</td>
+            <td>Ananya Nair</td>
+            <td>BCA</td>
+            <td>2</td>
+            <td>53.8%</td>
+            <td>-10.8 pts</td>
+            <td>5</td>
+            <td>100.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260197</td>
+            <td>Krishna Iyer</td>
+            <td>BCA</td>
+            <td>1</td>
+            <td>51.0%</td>
+            <td>-8.3 pts</td>
+            <td>4</td>
+            <td>99.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260207</td>
+            <td>Myra Chatterjee</td>
+            <td>B.Tech CSE</td>
+            <td>4</td>
+            <td>57.9%</td>
+            <td>-9.2 pts</td>
+            <td>5</td>
+            <td>99.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260087</td>
+            <td>Vihaan Kulkarni</td>
+            <td>BCA</td>
+            <td>3</td>
+            <td>68.2%</td>
+            <td>-17.7 pts</td>
+            <td>7</td>
+            <td>98.7%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260160</td>
+            <td>Diya Bose</td>
+            <td>BCA</td>
+            <td>3</td>
+            <td>68.8%</td>
+            <td>+29.2 pts</td>
+            <td>4</td>
+            <td>97.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260125</td>
+            <td>Dhruv Menon</td>
+            <td>MCA</td>
+            <td>3</td>
+            <td>68.1%</td>
+            <td>-13.9 pts</td>
+            <td>4</td>
+            <td>95.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260083</td>
+            <td>Myra Joshi</td>
+            <td>BCA</td>
+            <td>4</td>
+            <td>68.2%</td>
+            <td>+1.0 pts</td>
+            <td>4</td>
+            <td>94.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260046</td>
+            <td>Myra Pillai</td>
+            <td>B.Tech CSE</td>
+            <td>1</td>
+            <td>71.2%</td>
+            <td>+17.5 pts</td>
+            <td>7</td>
+            <td>94.7%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260068</td>
+            <td>Kabir Iyer</td>
+            <td>B.Tech ME</td>
+            <td>3</td>
+            <td>69.4%</td>
+            <td>+16.7 pts</td>
+            <td>3</td>
+            <td>94.6%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260158</td>
+            <td>Navya Rao</td>
+            <td>MCA</td>
+            <td>3</td>
+            <td>68.8%</td>
+            <td>+12.5 pts</td>
+            <td>3</td>
+            <td>94.3%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260193</td>
+            <td>Dhruv Agarwal</td>
+            <td>MCA</td>
+            <td>2</td>
+            <td>66.7%</td>
+            <td>+14.6 pts</td>
+            <td>3</td>
+            <td>93.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260020</td>
+            <td>Saanvi Chatterjee</td>
+            <td>MCA</td>
+            <td>3</td>
+            <td>68.1%</td>
+            <td>+2.8 pts</td>
+            <td>3</td>
+            <td>93.3%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260088</td>
+            <td>Tara Kulkarni</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>71.5%</td>
+            <td>+12.5 pts</td>
+            <td>4</td>
+            <td>92.7%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260037</td>
+            <td>Rohan Singh</td>
+            <td>BCA</td>
+            <td>3</td>
+            <td>71.9%</td>
+            <td>+14.6 pts</td>
+            <td>3</td>
+            <td>90.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260128</td>
+            <td>Riya Roy</td>
+            <td>BCA</td>
+            <td>1</td>
+            <td>68.2%</td>
+            <td>+13.5 pts</td>
+            <td>5</td>
+            <td>90.5%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260205</td>
+            <td>Anika Bhatt</td>
+            <td>BCA</td>
+            <td>2</td>
+            <td>71.2%</td>
+            <td>-19.2 pts</td>
+            <td>5</td>
+            <td>90.4%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260008</td>
+            <td>Zoya Chatterjee</td>
+            <td>MCA</td>
+            <td>3</td>
+            <td>71.3%</td>
+            <td>+11.5 pts</td>
+            <td>5</td>
+            <td>89.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260166</td>
+            <td>Saanvi Gupta</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>73.6%</td>
+            <td>-8.3 pts</td>
+            <td>4</td>
+            <td>88.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260023</td>
+            <td>Dhruv Das</td>
+            <td>MCA</td>
+            <td>1</td>
+            <td>69.8%</td>
+            <td>+12.5 pts</td>
+            <td>4</td>
+            <td>87.2%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260116</td>
+            <td>Kabir Chatterjee</td>
+            <td>B.Tech CSE</td>
+            <td>4</td>
+            <td>74.0%</td>
+            <td>+10.4 pts</td>
+            <td>4</td>
+            <td>86.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260194</td>
+            <td>Rohan Singh</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>73.6%</td>
+            <td>-19.4 pts</td>
+            <td>3</td>
+            <td>84.8%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260111</td>
+            <td>Aditya Pillai</td>
+            <td>B.Tech CSE</td>
+            <td>4</td>
+            <td>74.3%</td>
+            <td>+6.9 pts</td>
+            <td>3</td>
+            <td>81.3%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260138</td>
+            <td>Advait Roy</td>
+            <td>B.Tech CSE</td>
+            <td>2</td>
+            <td>69.8%</td>
+            <td>-31.2 pts</td>
+            <td>4</td>
+            <td>81.0%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260213</td>
+            <td>Diya Patel</td>
+            <td>B.Tech CSE</td>
+            <td>1</td>
+            <td>72.9%</td>
+            <td>+12.5 pts</td>
+            <td>4</td>
+            <td>80.2%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260131</td>
+            <td>Aditya Bhatt</td>
+            <td>B.Tech ECE</td>
+            <td>2</td>
+            <td>72.9%</td>
+            <td>+12.5 pts</td>
+            <td>3</td>
+            <td>79.7%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260070</td>
+            <td>Isha Agarwal</td>
+            <td>B.Tech CSE</td>
+            <td>1</td>
+            <td>72.2%</td>
+            <td>+16.7 pts</td>
+            <td>2</td>
+            <td>79.4%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260086</td>
+            <td>Advait Pillai</td>
+            <td>B.Tech CSE</td>
+            <td>2</td>
+            <td>71.3%</td>
+            <td>-15.6 pts</td>
+            <td>4</td>
+            <td>77.9%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260064</td>
+            <td>Dhruv Patel</td>
+            <td>B.Tech ECE</td>
+            <td>2</td>
+            <td>73.6%</td>
+            <td>+11.1 pts</td>
+            <td>3</td>
+            <td>75.7%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260015</td>
+            <td>Pari Bose</td>
+            <td>BCA</td>
+            <td>4</td>
+            <td>74.5%</td>
+            <td>+5.2 pts</td>
+            <td>3</td>
+            <td>75.3%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260089</td>
+            <td>Dhruv Menon</td>
+            <td>B.Tech ME</td>
+            <td>2</td>
+            <td>72.4%</td>
+            <td>+9.4 pts</td>
+            <td>3</td>
+            <td>75.3%</td>
+            <td><span class="badge" style="background:#d64545">High</span></td>
+        </tr>
+        <tr>
+            <td>20260180</td>
+            <td>Reyansh Joshi</td>
+            <td>B.Tech ECE</td>
+            <td>1</td>
+            <td>72.9%</td>
+            <td>-22.5 pts</td>
+            <td>7</td>
+            <td>74.5%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260104</td>
+            <td>Shaurya Verma</td>
+            <td>B.Tech ECE</td>
+            <td>2</td>
+            <td>75.0%</td>
+            <td>+19.4 pts</td>
+            <td>4</td>
+            <td>71.9%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260145</td>
+            <td>Sai Menon</td>
+            <td>B.Tech ME</td>
+            <td>2</td>
+            <td>76.4%</td>
+            <td>-13.9 pts</td>
+            <td>5</td>
+            <td>64.3%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260184</td>
+            <td>Zoya Das</td>
+            <td>B.Tech ME</td>
+            <td>4</td>
+            <td>76.6%</td>
+            <td>-13.5 pts</td>
+            <td>4</td>
+            <td>60.5%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260168</td>
+            <td>Kabir Roy</td>
+            <td>B.Tech CSE</td>
+            <td>4</td>
+            <td>72.9%</td>
+            <td>-18.1 pts</td>
+            <td>2</td>
+            <td>60.4%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260102</td>
+            <td>Saanvi Das</td>
+            <td>B.Tech ME</td>
+            <td>1</td>
+            <td>75.0%</td>
+            <td>+8.3 pts</td>
+            <td>2</td>
+            <td>60.1%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260114</td>
+            <td>Isha Bhatt</td>
+            <td>B.Tech ME</td>
+            <td>2</td>
+            <td>76.4%</td>
+            <td>+0.0 pts</td>
+            <td>3</td>
+            <td>57.3%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260017</td>
+            <td>Riya Agarwal</td>
+            <td>MCA</td>
+            <td>4</td>
+            <td>77.1%</td>
+            <td>+12.5 pts</td>
+            <td>3</td>
+            <td>56.6%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260177</td>
+            <td>Pari Mishra</td>
+            <td>B.Tech ME</td>
+            <td>1</td>
+            <td>75.4%</td>
+            <td>-10.8 pts</td>
+            <td>6</td>
+            <td>50.8%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        <tr>
+            <td>20260027</td>
+            <td>Pari Gupta</td>
+            <td>BCA</td>
+            <td>1</td>
+            <td>76.4%</td>
+            <td>-8.3 pts</td>
+            <td>3</td>
+            <td>50.7%</td>
+            <td><span class="badge" style="background:#e0a02c">Medium</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Auto-generated by the AI-Based Student Attendance Risk Prediction System.
+        "Trend" = change in attendance % between first and second half of the semester
+        (negative = declining). Risk Score is the model's predicted probability that
+        a student's overall attendance will fall below 75%.
+    </div>
+</div>
+</body>
+</html>
